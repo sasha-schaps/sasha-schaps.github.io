@@ -1,36 +1,50 @@
 body {
-  font-family: 'Arial', sans-serif; /* Changed font */
-  margin: 0;
-  padding: 20px;
-  background: #f4f4f4 url("images/background.jpg"); /* Added background image */
-  background-size: cover; /* Make image cover the whole background */
-  color: #333; 
+    margin: 0;
+    padding: 0;
+    font-family: -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto, Ubuntu, Arial, sans-serif;
+    color: #282828;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-font-smoothing: antialiased;
 }
-
-h1 {
-  color: #fff; /* Changed heading color to white */
-  text-shadow: 2px 2px 5px #333; /* Added text shadow */
-  text-align: center; /* Centered the heading */
+html, body {
+    width: 100%;
+    height: 100%;
 }
-
-p {
-  line-height: 1.6; /* Increased line spacing */
-  font-size: 18px; /* Increased font size */
+<style>
+html, body {
+    cursor: url(https://i-p.rmcdn.net/65638d5…/image-1e1b8104-3424-41be-bf06-d49b561a5d0b.png), auto;
+    cursor: -webkit-image-set(url(https://i-p.rmcdn.net/65638d5…/image-1e1b8104-3424-41be-bf06-d49b561a5d0b.png?w=26) 1x, url(https://i-p.rmcdn.net/65638d5…/image-1e1b8104-3424-41be-bf06-d49b561a5d0b.png) 2x), auto;
 }
-
-a {
-  color: #007bff; /* Changed link color */
-  text-decoration: none; /* Removed underlines from links */
+html, body {
+    height: 100%;
+    min-width: var(--min-desktop-width, 1024px);
+    overflow: hidden;
+    -webkit-tap-highlight-color: transparent;
 }
-
-a:hover {
-  text-decoration: underline; /* Added underline on hover */
+body, input {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility !important;
 }
-
-.container {
-  max-width: 960px; /* Set maximum width for content */
-  margin: 20px auto; /* Centered the content */
-  padding: 20px;
-  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 1    
-
+body {
+    line-height: 1;
+}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    vertical-align: baseline;
+}
+user agent stylesheet
+body {
+    display: block;
+    margin: 8px;
+}
+style attribute {
+    --min-desktop-width: 769px;
+}
+:root {
+    --min-desktop-width: 1024px;
+}
+* ::selection {
+    background-color: #A2A2A2;
