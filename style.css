@@ -1,10 +1,36 @@
 body {
-    font-family: sans-serif;
-    margin: 0;
-    padding: 20px;
-    background-color: #f4f4f4;
+  font-family: 'Arial', sans-serif; /* Changed font */
+  margin: 0;
+  padding: 20px;
+  background: #f4f4f4 url("images/background.jpg"); /* Added background image */
+  background-size: cover; /* Make image cover the whole background */
+  color: #333; 
 }
 
 h1 {
-    color: #333;
+  color: #fff; /* Changed heading color to white */
+  text-shadow: 2px 2px 5px #333; /* Added text shadow */
+  text-align: center; /* Centered the heading */
 }
+
+p {
+  line-height: 1.6; /* Increased line spacing */
+  font-size: 18px; /* Increased font size */
+}
+
+a {
+  color: #007bff; /* Changed link color */
+  text-decoration: none; /* Removed underlines from links */
+}
+
+a:hover {
+  text-decoration: underline; /* Added underline on hover */
+}
+
+.container {
+  max-width: 960px; /* Set maximum width for content */
+  margin: 20px auto; /* Centered the content */
+  padding: 20px;
+  background-color: rgba(255, 255, 255, 0.8); /* Semi-transparent white background */
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); 1    
+
