@@ -52,6 +52,9 @@
                 <button id="tab-about" onclick="switchTab('about')" class="tab-button active flex-1 py-3 text-sm sm:text-base text-gray-600 hover:text-indigo-600 transition duration-150 ease-in-out">
                     About Me
                 </button>
+                <button id="tab-skills" onclick="switchTab('skills')" class="tab-button flex-1 py-3 text-sm sm:text-base text-gray-600 hover:text-indigo-600 transition duration-150 ease-in-out">
+                    Skills
+                </button>
                 <button id="tab-resume" onclick="switchTab('resume')" class="tab-button flex-1 py-3 text-sm sm:text-base text-gray-600 hover:text-indigo-600 transition duration-150 ease-in-out">
                     Resume
                 </button>
@@ -84,7 +87,189 @@
                     <div id="copy-message" class="text-xs mt-2 text-green-600 opacity-0 transition-opacity duration-300">Email copied!</div>
                 </div>
 
-                <!-- 2. RESUME Content (Initially Hidden) -->
+                <!-- 2. SKILLS Content (Initially Hidden) -->
+                <div id="skills" class="tab-content hidden">
+                    <h2 class="text-2xl font-bold text-gray-800 mb-4">Technical Skills</h2>
+                    <p class="text-gray-600 mb-6">
+                        Here's a breakdown of my technical expertise across different areas of software development.
+                    </p>
+
+                    <!-- Frontend Skills -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold text-indigo-700 mb-3">Frontend Development</h3>
+
+                        <div class="space-y-4">
+                            <!-- React -->
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium text-gray-700">React / Next.js</span>
+                                    <span class="text-sm text-gray-500">90%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-indigo-600 h-2.5 rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+
+                            <!-- TypeScript -->
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium text-gray-700">TypeScript / JavaScript</span>
+                                    <span class="text-sm text-gray-500">85%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-indigo-600 h-2.5 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+
+                            <!-- HTML/CSS -->
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium text-gray-700">HTML5 / CSS3 / Tailwind</span>
+                                    <span class="text-sm text-gray-500">95%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-indigo-600 h-2.5 rounded-full" style="width: 95%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Backend Skills -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold text-indigo-700 mb-3">Backend Development</h3>
+
+                        <div class="space-y-4">
+                            <!-- Node.js -->
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium text-gray-700">Node.js / Express</span>
+                                    <span class="text-sm text-gray-500">80%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-green-600 h-2.5 rounded-full" style="width: 80%"></div>
+                                </div>
+                            </div>
+
+                            <!-- Python -->
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium text-gray-700">Python / Django / Flask</span>
+                                    <span class="text-sm text-gray-500">75%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-green-600 h-2.5 rounded-full" style="width: 75%"></div>
+                                </div>
+                            </div>
+
+                            <!-- REST APIs -->
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium text-gray-700">REST APIs / GraphQL</span>
+                                    <span class="text-sm text-gray-500">85%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-green-600 h-2.5 rounded-full" style="width: 85%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Database & Tools -->
+                    <div class="mb-6">
+                        <h3 class="text-lg font-semibold text-indigo-700 mb-3">Database & DevOps</h3>
+
+                        <div class="space-y-4">
+                            <!-- Databases -->
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium text-gray-700">PostgreSQL / MongoDB</span>
+                                    <span class="text-sm text-gray-500">80%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-purple-600 h-2.5 rounded-full" style="width: 80%"></div>
+                                </div>
+                            </div>
+
+                            <!-- Docker -->
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium text-gray-700">Docker / Containerization</span>
+                                    <span class="text-sm text-gray-500">70%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-purple-600 h-2.5 rounded-full" style="width: 70%"></div>
+                                </div>
+                            </div>
+
+                            <!-- Git -->
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium text-gray-700">Git / Version Control</span>
+                                    <span class="text-sm text-gray-500">90%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-purple-600 h-2.5 rounded-full" style="width: 90%"></div>
+                                </div>
+                            </div>
+
+                            <!-- AWS -->
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span class="text-sm font-medium text-gray-700">AWS / Cloud Services</span>
+                                    <span class="text-sm text-gray-500">65%</span>
+                                </div>
+                                <div class="w-full bg-gray-200 rounded-full h-2.5">
+                                    <div class="bg-purple-600 h-2.5 rounded-full" style="width: 65%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Soft Skills -->
+                    <div class="mt-6 p-4 bg-indigo-50 rounded-lg border border-indigo-200">
+                        <h3 class="text-lg font-semibold text-indigo-700 mb-3">Additional Strengths</h3>
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                            <div class="flex items-center">
+                                <svg class="w-5 h-5 text-indigo-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-sm text-gray-700">Team Leadership</span>
+                            </div>
+                            <div class="flex items-center">
+                                <svg class="w-5 h-5 text-indigo-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-sm text-gray-700">Problem Solving</span>
+                            </div>
+                            <div class="flex items-center">
+                                <svg class="w-5 h-5 text-indigo-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-sm text-gray-700">Agile/Scrum</span>
+                            </div>
+                            <div class="flex items-center">
+                                <svg class="w-5 h-5 text-indigo-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-sm text-gray-700">UI/UX Design</span>
+                            </div>
+                            <div class="flex items-center">
+                                <svg class="w-5 h-5 text-indigo-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-sm text-gray-700">Code Review</span>
+                            </div>
+                            <div class="flex items-center">
+                                <svg class="w-5 h-5 text-indigo-600 mr-2" fill="currentColor" viewBox="0 0 20 20">
+                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                                </svg>
+                                <span class="text-sm text-gray-700">Testing/TDD</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 3. RESUME Content (Initially Hidden) -->
                 <div id="resume" class="tab-content hidden">
                     <h2 class="text-2xl font-bold text-gray-800 mb-4">My Professional Journey</h2>
                     
@@ -123,7 +308,7 @@
                     </p>
                 </div>
 
-                <!-- 3. SOCIALS Content (Initially Hidden) -->
+                <!-- 4. SOCIALS Content (Initially Hidden) -->
                 <div id="socials" class="tab-content hidden">
                     <h2 class="text-2xl font-bold text-gray-800 mb-4">Connect with Me Online</h2>
                     <p class="text-gray-600 mb-6">
