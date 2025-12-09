@@ -94,10 +94,32 @@
             justify-content: center;
             padding: 120px 40px 80px;
             text-align: center;
+            position: relative;
+            background:
+                linear-gradient(135deg, rgba(245, 245, 247, 0.4) 0%, rgba(255, 255, 255, 0.8) 100%),
+                radial-gradient(circle at 20% 50%, rgba(0, 113, 227, 0.03) 0%, transparent 50%),
+                radial-gradient(circle at 80% 80%, rgba(29, 29, 31, 0.03) 0%, transparent 50%);
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image:
+                linear-gradient(90deg, rgba(210, 210, 215, 0.03) 1px, transparent 1px),
+                linear-gradient(rgba(210, 210, 215, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
         }
 
         .hero-content {
             max-width: 800px;
+            position: relative;
+            z-index: 1;
         }
 
         h1 {
@@ -167,8 +189,8 @@
         /* Work Grid */
         .work-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
-            gap: 60px;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
             margin-top: 80px;
         }
 
@@ -295,15 +317,28 @@
         }
 
         /* Responsive Design */
+
+        /* Tablet - 2 columns */
+        @media (max-width: 1024px) {
+            .work-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 32px;
+            }
+
+            section {
+                padding: 100px 32px;
+            }
+        }
+
+        /* Mobile Landscape & Small Tablets */
         @media (max-width: 768px) {
             nav {
                 padding: 16px 24px;
-                flex-direction: column;
-                gap: 20px;
             }
 
             .nav-links {
                 gap: 24px;
+                font-size: 13px;
             }
 
             .hero {
@@ -316,7 +351,7 @@
 
             .work-grid {
                 grid-template-columns: 1fr;
-                gap: 40px;
+                gap: 32px;
             }
 
             .about-content {
@@ -329,8 +364,65 @@
             }
 
             .contact-links {
+                gap: 16px;
+            }
+        }
+
+        /* Mobile Portrait */
+        @media (max-width: 480px) {
+            nav {
+                padding: 12px 20px;
+            }
+
+            .logo {
+                font-size: 18px;
+            }
+
+            .nav-links {
+                gap: 20px;
+            }
+
+            .nav-links a {
+                font-size: 12px;
+            }
+
+            .hero {
+                padding: 80px 20px 50px;
+                min-height: 90vh;
+            }
+
+            section {
+                padding: 60px 20px;
+            }
+
+            .work-grid {
+                gap: 24px;
+            }
+
+            .work-info {
+                padding: 24px;
+            }
+
+            .work-title {
+                font-size: 20px;
+            }
+
+            .work-description {
+                font-size: 15px;
+            }
+
+            .contact {
+                padding: 50px 24px;
+            }
+
+            .contact-links {
                 flex-direction: column;
                 align-items: stretch;
+            }
+
+            .contact-link {
+                padding: 14px 24px;
+                font-size: 15px;
             }
         }
 
