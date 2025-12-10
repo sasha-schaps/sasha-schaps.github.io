@@ -3,311 +3,433 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sasha Schaps | Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="description" content="Portfolio of Sasha Schaps - focused on building community engagement through data-driven customer obsession">
+    <title>Sasha Schaps</title>
     <style>
-        body {
-            font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --text-primary: #1d1d1f;
+            --text-secondary: #6e6e73;
+            --background: #ffffff;
+            --accent: #0071e3;
+            --border: #d2d2d7;
+        }
+
+        html {
             scroll-behavior: smooth;
         }
 
-        .gradient-bg {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            color: var(--text-primary);
+            background: var(--background);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
         }
 
-        .section-divider {
-            height: 2px;
-            background: linear-gradient(to right, transparent, #667eea, transparent);
-            margin: 3rem 0;
+        /* Header & Navigation */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.8);
+            backdrop-filter: saturate(180%) blur(20px);
+            z-index: 1000;
+            border-bottom: 1px solid rgba(0, 0, 0, 0.05);
         }
 
-        .skill-badge {
-            transition: transform 0.2s ease;
+        nav {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
         }
 
-        .skill-badge:hover {
+        .logo {
+            font-size: 20px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo:hover {
+            opacity: 0.7;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 400;
+            letter-spacing: 0.3px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 120px 40px 80px;
+            text-align: center;
+        }
+
+        .hero-content {
+            max-width: 800px;
+        }
+
+        h1 {
+            font-size: clamp(48px, 8vw, 96px);
+            font-weight: 700;
+            letter-spacing: -2px;
+            line-height: 1.1;
+            margin-bottom: 24px;
+            background: linear-gradient(135deg, #1d1d1f 0%, #6e6e73 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .subtitle {
+            font-size: clamp(20px, 3vw, 28px);
+            color: var(--text-secondary);
+            font-weight: 400;
+            letter-spacing: -0.3px;
+            line-height: 1.4;
+            margin-bottom: 40px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 16px 40px;
+            background: var(--text-primary);
+            color: white;
+            text-decoration: none;
+            border-radius: 100px;
+            font-size: 16px;
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            letter-spacing: 0.3px;
+        }
+
+        .cta-button:hover {
+            background: var(--text-secondary);
             transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
         }
 
-        .card-hover {
-            transition: all 0.3s ease;
+        /* Section Styling */
+        section {
+            padding: 120px 40px;
+            max-width: 1400px;
+            margin: 0 auto;
         }
 
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        .section-title {
+            font-size: clamp(40px, 5vw, 64px);
+            font-weight: 700;
+            letter-spacing: -1.5px;
+            margin-bottom: 60px;
+            text-align: center;
         }
 
-        @media (max-width: 640px) {
-            .hero-title {
-                font-size: 2.5rem;
+        .section-subtitle {
+            font-size: clamp(18px, 2.5vw, 24px);
+            color: var(--text-secondary);
+            text-align: center;
+            max-width: 700px;
+            margin: -40px auto 80px;
+            line-height: 1.5;
+        }
+
+        /* Work Grid */
+        .work-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 60px;
+            margin-top: 80px;
+        }
+
+        .work-item {
+            position: relative;
+            overflow: hidden;
+            border-radius: 16px;
+            background: #f5f5f7;
+            cursor: pointer;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .work-item:hover {
+            transform: translateY(-8px);
+        }
+
+        .work-image {
+            width: 100%;
+            aspect-ratio: 16/10;
+            background: linear-gradient(135deg, #f5f5f7 0%, #e8e8ed 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: 14px;
+            letter-spacing: 0.5px;
+        }
+
+        .work-info {
+            padding: 32px;
+        }
+
+        .work-title {
+            font-size: 24px;
+            font-weight: 600;
+            letter-spacing: -0.5px;
+            margin-bottom: 12px;
+        }
+
+        .work-description {
+            color: var(--text-secondary);
+            font-size: 16px;
+            line-height: 1.5;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 80px;
+            align-items: center;
+            margin-top: 80px;
+        }
+
+        .about-image {
+            width: 100%;
+            aspect-ratio: 4/5;
+            background: linear-gradient(135deg, #f5f5f7 0%, #e8e8ed 100%);
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        .about-text {
+            font-size: 18px;
+            line-height: 1.8;
+            color: var(--text-secondary);
+        }
+
+        .about-text p {
+            margin-bottom: 24px;
+        }
+
+        .about-text strong {
+            color: var(--text-primary);
+            font-weight: 600;
+        }
+
+        /* Contact Section */
+        .contact {
+            background: #f5f5f7;
+            border-radius: 24px;
+            padding: 80px 60px;
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            gap: 32px;
+            justify-content: center;
+            flex-wrap: wrap;
+            margin-top: 40px;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 32px;
+            background: white;
+            border-radius: 100px;
+            text-decoration: none;
+            color: var(--text-primary);
+            font-weight: 500;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            font-size: 16px;
+        }
+
+        .contact-link:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Footer */
+        footer {
+            padding: 60px 40px;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 14px;
+            border-top: 1px solid var(--border);
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav {
+                padding: 16px 24px;
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .nav-links {
+                gap: 24px;
+            }
+
+            .hero {
+                padding: 100px 24px 60px;
+            }
+
+            section {
+                padding: 80px 24px;
+            }
+
+            .work-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .contact {
+                padding: 60px 32px;
+            }
+
+            .contact-links {
+                flex-direction: column;
+                align-items: stretch;
             }
         }
+
+        /* Smooth animations on scroll */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 0.8s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in:nth-child(1) { animation-delay: 0.1s; }
+        .fade-in:nth-child(2) { animation-delay: 0.2s; }
+        .fade-in:nth-child(3) { animation-delay: 0.3s; }
+        .fade-in:nth-child(4) { animation-delay: 0.4s; }
     </style>
 </head>
-<body class="bg-gray-50">
+<body>
+    <header>
+        <nav>
+            <a href="#" class="logo">Sasha Schaps</a>
+            <ul class="nav-links">
+                <li><a href="#work">Resume</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
 
-    <!-- Hero Section -->
-    <section class="gradient-bg text-white py-20 px-4">
-        <div class="max-w-4xl mx-auto text-center">
-            <div class="mb-6">
-                <div class="w-32 h-32 mx-auto rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center border-4 border-white/30">
-                    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-16 h-16">
-                        <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
-                    </svg>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>The Intersection of AI, Data and Creative Production</h1>
+            <p class="subtitle">Enabling AI to measure it and then partnering with humans to create.</p>
+            <a href="#work" class="cta-button">View Work</a>
+        </div>
+    </section>
+
+    <section id="work">
+        <h2 class="section-title">Selected Work</h2>
+        <p class="section-subtitle">A collection of projects spanning product launches, school product, and creative briefs.</p>
+
+        <div class="work-grid">
+            <div class="work-item fade-in">
+                <div class="work-image">Project Image</div>
+                <div class="work-info">
+                    <h3 class="work-title">Product Launch Campaign</h3>
+                    <p class="work-description">I wrote this.</p>
                 </div>
             </div>
-            <h1 class="hero-title text-5xl font-extrabold mb-4">Sasha Schaps</h1>
-            <p class="text-xl mb-2 text-white/90">Customer Education Manager | Aspiring Data Scientist</p>
-            <p class="text-lg text-white/80 mb-8">UC Berkeley - Spring 2026 | Data Science</p>
-            <div class="flex justify-center gap-4 flex-wrap">
-                <a href="#about" class="px-6 py-3 bg-white text-purple-600 rounded-full font-semibold hover:bg-gray-100 transition duration-300 shadow-lg">Learn More</a>
-                <a href="mailto:sasha.schaps@gmail.com" class="px-6 py-3 bg-purple-800/50 backdrop-blur-sm text-white rounded-full font-semibold hover:bg-purple-800/70 transition duration-300 border-2 border-white/30">Get in Touch</a>
+
+            <div class="work-item fade-in">
+                <div class="work-image">Project Image</div>
+                <div class="work-info">
+                    <h3 class="work-title">Data Analysis</h3>
+                    <p class="work-description">I'm going to UC Berkeley in Spring 2026, here's some data science work I've had my hands in.</p>
+                </div>
+            </div>
+
+            <div class="work-item fade-in">
+                <div class="work-image">Project Image</div>
+                <div class="work-info">
+                    <h3 class="work-title">Briefs</h3>
+                    <p class="work-description">Here's where I'll briefly descibe how we landed on 75K PPT decks.</p>
+                </div>
+            </div>
+    </section>
+
+    <section id="about">
+        <h2 class="section-title">About</h2>
+        <div class="about-content">
+            <div class="about-image">Portrait Image</div>
+            <div class="about-text">
+                <p><strong>Former Program Manager and Content Strategist</strong>, with extensive experience in Instagram and Facebook Groups.</p>
+                <p>My work focuses on connecting teams, idea and engagement</p>
+    </section>
+
+    <section id="contact">
+        <div class="contact">
+            <h2 class="section-title">Let's Connect</h2>
+            <p class="section-subtitle">Interested in working together? Get in touch.</p>
+            <div class="contact-links">
+                <a href="mailto:sashaschaps@berkeley.edu" class="contact-link">
+                    <span>Email</span>
+                </a>
+                <a href="https://linkedin.com/in/sashaschaps" target="_blank" class="contact-link">
+                    <span>LinkedIn</span>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-16 px-4">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-4xl font-bold text-gray-800 mb-6 text-center">About Me</h2>
-            <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
-                <p class="text-gray-700 leading-relaxed mb-4 text-lg">
-                    Hello! I'm Sasha, and I'm excited to be starting my journey in Data Science at UC Berkeley this spring. After taking a year off to recharge and explore new perspectives, I'm back and more motivated than ever to dive into the world of data, analytics, and machine learning.
-                </p>
-                <p class="text-gray-700 leading-relaxed mb-4 text-lg">
-                    My professional background is rooted in education and technology. At Meta, I worked as a Customer Education Manager, where I designed and delivered training programs that empowered users to make the most of Meta's platforms and tools. This role taught me the importance of translating complex technical concepts into accessible, actionable insights—a skill I'm eager to apply in the field of data science.
-                </p>
-                <p class="text-gray-700 leading-relaxed text-lg">
-                    When I'm not exploring datasets or learning new algorithms, you can find me playing Pokémon GO around the Bay Area or hitting the gym to stay active and energized.
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <div class="section-divider max-w-4xl mx-auto"></div>
-
-    <!-- Experience Section -->
-    <section id="experience" class="py-16 px-4 bg-gray-50">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-4xl font-bold text-gray-800 mb-8 text-center">Experience</h2>
-
-            <div class="bg-white rounded-xl shadow-lg p-8 mb-6 card-hover">
-                <div class="flex items-start gap-4">
-                    <div class="flex-shrink-0">
-                        <div class="w-16 h-16 rounded-lg bg-gradient-to-br from-blue-500 to-blue-700 flex items-center justify-center text-white font-bold text-2xl">
-                            M
-                        </div>
-                    </div>
-                    <div class="flex-1">
-                        <h3 class="text-2xl font-bold text-gray-800">Customer Education Manager</h3>
-                        <p class="text-purple-600 font-semibold mb-3">Meta</p>
-                        <ul class="space-y-2 text-gray-700">
-                            <li class="flex items-start">
-                                <svg class="w-5 h-5 text-purple-500 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                <span>Developed and delivered comprehensive training programs for Meta's products and services, improving user adoption and engagement</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-5 h-5 text-purple-500 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                <span>Created educational content and resources that translated complex technical features into user-friendly learning materials</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-5 h-5 text-purple-500 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                <span>Collaborated with cross-functional teams to identify user needs and design targeted educational initiatives</span>
-                            </li>
-                            <li class="flex items-start">
-                                <svg class="w-5 h-5 text-purple-500 mr-2 mt-1 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
-                                    <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
-                                </svg>
-                                <span>Analyzed user feedback and metrics to continuously improve educational programs and outcomes</span>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="section-divider max-w-4xl mx-auto"></div>
-
-    <!-- Education Section -->
-    <section id="education" class="py-16 px-4">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-4xl font-bold text-gray-800 mb-8 text-center">Education</h2>
-
-            <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
-                <div class="flex items-start gap-4">
-                    <div class="flex-shrink-0">
-                        <div class="w-16 h-16 rounded-lg bg-gradient-to-br from-yellow-500 to-blue-600 flex items-center justify-center text-white font-bold text-xl">
-                            CAL
-                        </div>
-                    </div>
-                    <div class="flex-1">
-                        <h3 class="text-2xl font-bold text-gray-800">University of California, Berkeley</h3>
-                        <p class="text-purple-600 font-semibold mb-2">Bachelor of Arts - Data Science</p>
-                        <p class="text-gray-600 mb-4">Expected Start: Spring 2026</p>
-                        <p class="text-gray-700 leading-relaxed">
-                            Preparing to pursue a comprehensive education in data science, focusing on statistical analysis, machine learning, data visualization, and computational thinking. Excited to join one of the world's leading institutions for data science and technology.
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <div class="section-divider max-w-4xl mx-auto"></div>
-
-    <!-- Skills Section -->
-    <section id="skills" class="py-16 px-4 bg-gray-50">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-4xl font-bold text-gray-800 mb-8 text-center">Skills & Interests</h2>
-
-            <div class="grid md:grid-cols-2 gap-6">
-                <!-- Professional Skills -->
-                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
-                    <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
-                        <svg class="w-6 h-6 text-purple-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 13.255A23.931 23.931 0 0112 15c-3.183 0-6.22-.62-9-1.745M16 6V4a2 2 0 00-2-2h-4a2 2 0 00-2 2v2m4 6h.01M5 20h14a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                        </svg>
-                        Professional Skills
-                    </h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="skill-badge px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-semibold">Education & Training</span>
-                        <span class="skill-badge px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold">Content Creation</span>
-                        <span class="skill-badge px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full text-sm font-semibold">Program Management</span>
-                        <span class="skill-badge px-4 py-2 bg-pink-100 text-pink-700 rounded-full text-sm font-semibold">User Research</span>
-                        <span class="skill-badge px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-semibold">Cross-functional Collaboration</span>
-                        <span class="skill-badge px-4 py-2 bg-yellow-100 text-yellow-700 rounded-full text-sm font-semibold">Technical Communication</span>
-                    </div>
-                </div>
-
-                <!-- Data Science Interests -->
-                <div class="bg-white rounded-xl shadow-lg p-6 card-hover">
-                    <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
-                        <svg class="w-6 h-6 text-purple-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>
-                        </svg>
-                        Data Science Interests
-                    </h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="skill-badge px-4 py-2 bg-purple-100 text-purple-700 rounded-full text-sm font-semibold">Machine Learning</span>
-                        <span class="skill-badge px-4 py-2 bg-blue-100 text-blue-700 rounded-full text-sm font-semibold">Data Visualization</span>
-                        <span class="skill-badge px-4 py-2 bg-indigo-100 text-indigo-700 rounded-full text-sm font-semibold">Statistical Analysis</span>
-                        <span class="skill-badge px-4 py-2 bg-pink-100 text-pink-700 rounded-full text-sm font-semibold">Python</span>
-                        <span class="skill-badge px-4 py-2 bg-green-100 text-green-700 rounded-full text-sm font-semibold">Predictive Modeling</span>
-                        <span class="skill-badge px-4 py-2 bg-yellow-100 text-yellow-700 rounded-full text-sm font-semibold">Data Ethics</span>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Hobbies -->
-            <div class="mt-6 bg-white rounded-xl shadow-lg p-6 card-hover">
-                <h3 class="text-xl font-bold text-gray-800 mb-4 flex items-center">
-                    <svg class="w-6 h-6 text-purple-600 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14.828 14.828a4 4 0 01-5.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-                    </svg>
-                    Beyond Work
-                </h3>
-                <p class="text-gray-700">
-                    When I'm not immersed in data or education, I love staying active at the gym and exploring the world of Pokémon GO. I'm always on the lookout for rare catches around the Bay Area!
-                </p>
-            </div>
-        </div>
-    </section>
-
-    <div class="section-divider max-w-4xl mx-auto"></div>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-16 px-4">
-        <div class="max-w-4xl mx-auto">
-            <h2 class="text-4xl font-bold text-gray-800 mb-8 text-center">Get in Touch</h2>
-
-            <div class="bg-white rounded-xl shadow-lg p-8 card-hover">
-                <p class="text-gray-700 text-center mb-6 text-lg">
-                    I'm always excited to connect with fellow data enthusiasts, potential collaborators, or anyone interested in education and technology. Feel free to reach out!
-                </p>
-
-                <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-                    <a href="mailto:sasha.schaps@gmail.com" class="flex items-center px-6 py-3 bg-gradient-to-r from-purple-600 to-blue-600 text-white rounded-full font-semibold hover:from-purple-700 hover:to-blue-700 transition duration-300 shadow-lg">
-                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
-                        </svg>
-                        sasha.schaps@gmail.com
-                    </a>
-
-                    <button onclick="copyEmail()" class="flex items-center px-6 py-3 bg-gray-200 text-gray-800 rounded-full font-semibold hover:bg-gray-300 transition duration-300">
-                        <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z"/>
-                        </svg>
-                        Copy Email
-                    </button>
-                </div>
-
-                <div id="copy-message" class="text-center mt-4 text-green-600 font-semibold opacity-0 transition-opacity duration-300">
-                    Email copied to clipboard!
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="gradient-bg text-white py-8 px-4 mt-16">
-        <div class="max-w-4xl mx-auto text-center">
-            <p class="text-white/90 mb-2">&copy; <span id="current-year"></span> Sasha Schaps</p>
-            <p class="text-white/70 text-sm">Built with HTML and Tailwind CSS for GitHub Pages</p>
-        </div>
+    <footer>
+        <p>&copy; 2025 Sasha Schaps. All rights reserved.</p>
     </footer>
-
-    <script>
-        // Set current year in footer
-        document.getElementById('current-year').textContent = new Date().getFullYear();
-
-        // Copy email function
-        function copyEmail() {
-            const email = 'sasha.schaps@gmail.com';
-            const textarea = document.createElement('textarea');
-            textarea.value = email;
-            textarea.style.position = 'fixed';
-            textarea.style.opacity = '0';
-            document.body.appendChild(textarea);
-            textarea.select();
-
-            try {
-                document.execCommand('copy');
-                const msgElement = document.getElementById('copy-message');
-                msgElement.classList.remove('opacity-0');
-                msgElement.classList.add('opacity-100');
-                setTimeout(() => {
-                    msgElement.classList.remove('opacity-100');
-                    msgElement.classList.add('opacity-0');
-                }, 2000);
-            } catch (err) {
-                console.error('Failed to copy email', err);
-            }
-
-            document.body.removeChild(textarea);
-        }
-
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                }
-            });
-        });
-    </script>
-
 </body>
 </html>
